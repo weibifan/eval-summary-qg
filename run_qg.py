@@ -32,7 +32,7 @@ if __name__ == "__main__":
         summarizer = pipelineHF("summarization", model=sum_model) if args.use_summary else None
 
     if args.infile:
-        input_text = open(args.infile,"r").read()
+        input_text = open(args.infile,"r", encoding='utf-8').read()
         qa_pairs = extract_qa_pairs(tokenizer, qg, summarizer, input_text)
         print_qa_pairs(qa_pairs)
 
